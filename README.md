@@ -48,7 +48,7 @@ OpenDictaVoice need the following modules installed to work (SpeechRecognition, 
 
 **You can install all dependancies automatically** by running, in the downloaded directory, the command:
 ```bash
-pip install -r ./dependancies.txt
+pip install -r ./requirements.txt
 ```
 
 **But if you prefer to do it manually**, just follow steps bellow:
