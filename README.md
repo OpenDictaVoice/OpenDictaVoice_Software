@@ -13,7 +13,7 @@ Run the shell command:
 git clone https://github.com/OpenDictaVoice/OpenDictaVoice_Software.git
 ```
 &nbsp;  
-**Or**, if you prefer, download the repository directly from gitlab
+**Or**, if you prefer, download the repository directly from github
 
 ![Download the repository from Gitlab](./README_imgs/download_gitlab.png "Download the repository from Gitlab")
 
