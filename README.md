@@ -12,10 +12,11 @@ Run the shell command:
 ```bash
 git clone https://github.com/OpenDictaVoice/OpenDictaVoice_Software.git
 ```
-&nbsp;  
-**Or**, if you prefer, download the repository directly from github
+&nbsp;
+**Or**, if you prefer, download the repository directly from Github
 
-![Download the repository from Gitlab](./README_imgs/download_gitlab.png "Download the repository from Gitlab")
+![Download the repository from Github](./README_imgs/download_github1.png "Download the repository from Github")
+![Download the repository from Github](./README_imgs/download_github2.png "Download the repository from Github")
 
 ### step 2: Install dependencies
 
