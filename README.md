@@ -1,5 +1,7 @@
 # OpenDictaVoice
 
+![Software illustration](./README_imgs/wrote.png "OpenDictaVoice'ś example of use")
+
 ## I) Description:
 
 A voice dictation program written in **python3** to do voice dictation.
