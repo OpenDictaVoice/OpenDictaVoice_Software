@@ -51,7 +51,7 @@ OpenDictaVoice need the following modules installed to work (SpeechRecognition, 
 python -m pip install -r ./requirements.txt
 ```
 
-**But if you prefer to do it manually**, just follow steps bellow:
+**But if you prefer to do it manually**, just follow steps below:
 
 1) The OpenDictaVoice program uses **SpeechRecognotion** module to work, wich is available here:
 [https://pypi.org/project/SpeechRecognition/](https://pypi.org/project/SpeechRecognition/)
@@ -67,7 +67,7 @@ python -m pip install pyaudio
 ```
 &nbsp;  
 &nbsp;  
-**NOTE**: If you are installing OpenDictaVoice on **Windows**, it is possible that the installation of PyAudio module doesn't work this way.
+**NOTE**: If you are installing OpenDictaVoice on **Windows**, the PyAudio module installation may not work this way.
 It is because the installation file provided by this method is not appropriated to your computer.
 
 In this case, go to [https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) to download the correct **wheel file** for your computer,
@@ -142,11 +142,10 @@ in the order in which they were recorded. It is usefull to play for time.
 
 ## To go further
 
-OpenDictaVoice is just a graphical interface to do voice dictation using a Speech To Text Engine. For now it uses "Google STT" or "CMU Sphinx" but if you have your own Speech To Text Engine 
+OpenDictaVoice is a graphical interface to do voice dictation using a Speech To Text Engine. For now it uses "Google STT" or "CMU Sphinx" but if you have your own Speech To Text Engine 
 (Created with Common Voice and DeepSpeech for example, [https://research.mozilla.org/machine-learning/](https://research.mozilla.org/machine-learning/)), you can use it with this program by modifying the source code.
 
-Moreover, speech recognition is a major thing in a multitude of fields (ergonomics, new form of human-machine interface, assistance for disabled people, ...) and the possibility
-of having this kind of technology accessible to all people in open source is most likely desirable. But the most precious commodity for this is voice samples...
+Moreover, speech recognition is important in many applications (ergonomics, new form of human-machine interface, assistance for disabled people, etc.) and the possibility of having this kind of technology widely accessible in open source is most likely desirable. But the most precious commodity for this is voice samples...
 
 Fortunately, we can all make this possible. There is an open source project you can ALL contribute to : **Common Voice** ([https://voice.mozilla.org/](https://voice.mozilla.org/))
 
