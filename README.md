@@ -49,7 +49,7 @@ OpenDictaVoice need the following modules installed to work (SpeechRecognition, 
 
 **You can install all dependancies automatically** by running, in the downloaded directory, the command:
 ```bash
-pip install -r ./requirements.txt
+python -m pip install -r ./requirements.txt
 ```
 
 **But if you prefer to do it manually**, just follow steps bellow:
@@ -59,12 +59,12 @@ pip install -r ./requirements.txt
 
 To install it, run the shell command:
 ```bash
-pip install SpeechRecognition
+python -m pip install SpeechRecognition
 ```
 
 2) **PyAudio:** To install it, run the shell command:
 ```bash
-pip install pyaudio
+python -m pip install pyaudio
 ```
 &nbsp;  
 &nbsp;  
@@ -75,24 +75,24 @@ In this case, go to [https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio](https:
 (PyAudio‑0.2.11‑cp39‑cp39‑win_amd64.whl for example), and use it to install pyaudio by running the command
 
 ```bash
-pip install PyAudio‑0.2.11‑cp39‑cp39‑win_amd64.whl
+python -m pip install PyAudio‑0.2.11‑cp39‑cp39‑win_amd64.whl
 ```
 &nbsp;  
 &nbsp;  
 3) **pynput:** To install it, run the shell command:
 ```bash
-pip install pynput
+python -m pip install pynput
 ```
 
 4) **python-xlib:** To install it, run the shell command:
 
 ```bash
-pip install python-xlib
+python -m pip install python-xlib
 ```
 
 5) **six:** To install it, run the shell command:
 ```bash
-pip install six
+python -m pip install six
 ```
 
 ## III) How to use:
