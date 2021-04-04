@@ -10,7 +10,7 @@ A voice dictation program written in **python3** to do voice dictation.
 
 Run the shell command:
 ```bash
-git clone https://gitlab.com/Sleb/opendictavoice.git
+git clone https://github.com/OpenDictaVoice/OpenDictaVoice_Software.git
 ```
 &nbsp;  
 **Or**, if you prefer, download the repository directly from gitlab
