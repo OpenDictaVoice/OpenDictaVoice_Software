@@ -1,6 +1,6 @@
 # OpenDictaVoice
 
-![Software illustration](./README_imgs/wrote.png "OpenDictaVoice'ś example of use")
+![Software illustration](./README_imgs/illustration.png "OpenDictaVoice'ś example of use")
 
 ## I) Description:
 
