@@ -1,12 +1,9 @@
 # OpenDictaVoice
 
+OpenDictaVoice is a voice dictation program written in **python3**. It works with *any* programs, for instance your usual programs (text editors, mails, etc.). Just maintain and Ctrl+Shift while you speak! More precisely, it is a graphical user interface that is compatible with several voice recognition systems, e.g. "Google STT" or "CMU Sphinx".
 ![Software illustration](./README_imgs/illustration.png "OpenDictaVoice'ś example of use")
 
-## I) Description:
-
-A voice dictation program written in **python3** to do voice dictation.
-
-## II) Installation:
+## Installation
 
 ### Step 1: Download the program
 
@@ -97,7 +94,7 @@ python -m pip install python-xlib
 python -m pip install six
 ```
 
-## III) How to use:
+## III) How to use
 
 ### Launch:
 
@@ -110,7 +107,7 @@ python3 ./opendictavoice_app/opendictavoice_main.py
 
 Note: you can of course make a shortcut to the ```./opendictavoice_app/opendictavoice_main.py``` file to launch it easily.
 
-### Utilization: 
+### Use
 
 
 It will open a window with low opacity that is always in the foreground.
@@ -143,7 +140,7 @@ This will then switch the focus using an ALT + TAB shortcut to get the focus on 
 in the order in which they were recorded. It is usefull to play for time.
 
 
-## IV) To go further:
+## To go further
 
 OpenDictaVoice is just a graphical interface to do voice dictation using a Speech To Text Engine. For now it uses "Google STT" or "CMU Sphinx" but if you have your own Speech To Text Engine 
 (Created with Common Voice and DeepSpeech for example, [https://research.mozilla.org/machine-learning/](https://research.mozilla.org/machine-learning/)), you can use it with this program by modifying the source code.
