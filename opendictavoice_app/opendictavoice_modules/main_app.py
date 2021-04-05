@@ -3,7 +3,7 @@ import opendictavoice_modules.builded_GUI
 import opendictavoice_modules.voice_recognizer
 import opendictavoice_modules.formatter
 import opendictavoice_modules.keyboard_listener
-import opendictavoice_modules.fifo
+import opendictavoice_modules.task_queue
 
 import threading
 import pynput
@@ -23,7 +23,7 @@ class Main_App():
         self.gui = opendictavoice_modules.builded_GUI.Builded_GUI(self.resources_path)
         self.formatter = opendictavoice_modules.formatter.Formatter(self.resources_path, self.rewritingrules_files)
         self.audio_manager = opendictavoice_modules.audio_manager.Audio_manager(self.resources_path)
-        self.fifo = opendictavoice_modules.fifo.FIFO()
+        self.task_queue = opendictavoice_modules.task_queue.Task_queue()
 
 
     def launch_record_in_thread(self):
@@ -53,19 +53,19 @@ class Main_App():
               p_voice_recognizer the engine that can recognize voice
               p_id index in the FIFO of the element to analyse
         """
-        print(self.fifo)
+        print(self.task_queue)
         #processing
         filepath = self.resources_path + '/temp/recorded_' + str(p_id) + '.wav'
         text = p_voice_recognizer.get_text_from_wav(filepath)
         os.remove(filepath)
         if text is None:
             opendictavoice_modules.audio_manager.Audio_manager(self.resources_path).play_error_sound()
-            self.fifo.remove_process(p_id)
+            self.task_queue.remove_process(p_id)
 
         else:
             #once text is recognized (or not), it is stored in the fifo list in the specific dict of the list.
             #Beware of the content of the list to ensure chars are printable to avoid security problems
-            self.fifo.set_process_value(p_id, text)
+            self.task_queue.set_process_value(p_id, text)
             self.write_fifo_texts()
 
 
@@ -75,9 +75,9 @@ class Main_App():
         write (i.e type) all recognized texts in the focused window
         """
 
-        print(self.fifo)
-        while (not self.fifo.is_empty()):
-            dict_process = self.fifo[0]
+        print(self.task_queue)
+        while (not self.task_queue.is_empty()):
+            dict_process = self.task_queue[0]
 
             if (dict_process['state'] == 'DONE'):
                 text = dict_process['value']
@@ -91,12 +91,12 @@ class Main_App():
                 print('=========================\n\n')
 
                 pynput.keyboard.Controller().type(formated_text)
-                self.fifo.remove_process(dict_process['id'])
+                self.task_queue.remove_process(dict_process['id'])
 
             else:
                 break
 
-        print(self.fifo)
+        print(self.task_queue)
 
 
 
@@ -124,7 +124,7 @@ class Main_App():
         temp_voice_recognizer.set_language(self.gui.get_language())
 
         #FIFO object will return a number that will be used to name the file, like recorded_1.wav
-        index = self.fifo.push_voice_recognition_process()
+        index = self.task_queue.push_voice_recognition_process()
         self.audio_manager.stop_record_N_save(self.resources_path + '/temp/recorded_' + str(index) +'.wav')
 
         #then, instead of passing the filename as arg, we pass the index of the file in the fifo, like 1

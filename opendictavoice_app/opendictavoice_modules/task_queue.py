@@ -37,7 +37,7 @@
 
 """
 
-class FIFO:
+class Task_queue:
     """
         Class which is supposed to manage the order in which recognized texts are returned.
 
