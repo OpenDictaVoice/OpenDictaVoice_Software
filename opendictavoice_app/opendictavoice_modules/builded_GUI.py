@@ -77,7 +77,7 @@ class Builded_GUI:
         ret_window.protocol("WM_DELETE_WINDOW", self.on_closing)
         ret_window.wm_attributes("-topmost", True)
         ret_window.wait_visibility(ret_window)
-        ret_window.attributes('-alpha', 0.7)
+        ret_window.attributes('-alpha', 0.7) #transparent windoww
 
         return ret_window
 
@@ -101,8 +101,9 @@ class Builded_GUI:
         """
 
         img = tkinter.PhotoImage(file=self._resources_path + 'imgs/record.png')
-        ret_button = tkinter.Button(self._window, image=img)
+        ret_button = tkinter.Button(self._window, text="press Ctrl+Shift", image=img,compound = tkinter.TOP)
         ret_button.image = img
+        ret_button.text ="press Ctrl+Shift"
         ret_button.config(width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
 
         return ret_button
