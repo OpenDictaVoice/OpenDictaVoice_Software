@@ -66,9 +66,9 @@ class Task_queue:
             :return: None
             :rtype: None
         """
-        self._fifo = list()
+        self._tasklist = list()
 
-    def push_voice_recognition_process(self):
+    def push(self):
         """
             Appends to the fifo an empty process ({id: len(self._fifo), state: "PROCESSING", value: ""})
 
@@ -76,12 +76,12 @@ class Task_queue:
             :rtype: int
         """
 
-        ret_counter = len(self._fifo)
-        self._fifo.append({'id': ret_counter, 'state': 'PROCESSING', 'value': ''})
+        ret_counter = len(self._tasklist)
+        self._tasklist.append({'id': ret_counter, 'state': 'PROCESSING', 'value': ''})
 
         return ret_counter
 
-    def remove_process(self, p_id):
+    def remove(self, p_id):
         """
             Remove from the fifo the process which id is p_id
 
@@ -90,10 +90,10 @@ class Task_queue:
             :return: None
             :rtype: None
         """
-        dict_2_remove = self.get_process(p_id)
-        self._fifo.remove(dict_2_remove)
+        dict_2_remove = self.get(p_id)
+        self._tasklist.remove(dict_2_remove)
 
-    def get_process(self, p_id):
+    def get(self, p_id):
         """
             Returns the process in the fifo which id is p_id
 
@@ -103,7 +103,7 @@ class Task_queue:
             :rtype: dict
         """
         try:
-            ret_dict =  next(dict_el for dict_el in self._fifo if dict_el['id'] == p_id)
+            ret_dict =  next(dict_el for dict_el in self._tasklist if dict_el['id'] == p_id)
         except StopIteration:
             raise ValueError("ERROR, voice_recognition_process ID " + str(p_id) + "Doesn't exist")
 
@@ -127,7 +127,7 @@ class Task_queue:
             :return: None
             :rtype: None
         """
-        for dict_process in self._fifo:
+        for dict_process in self._tasklist:
             yield dict_process
 
     def __getitem__(self, p_index):
@@ -149,7 +149,7 @@ class Task_queue:
             :rtype: dict
         """
 
-        return (self._fifo[p_index])
+        return (self._tasklist[p_index])
 
     def __repr__(self):
         """
@@ -159,7 +159,7 @@ class Task_queue:
             :rtype: list
         """
 
-        return str(self._fifo)
+        return str(self._tasklist)
 
     def is_empty(self):
         """
@@ -169,7 +169,7 @@ class Task_queue:
             :rtype: bool
         """
 
-        return (self._fifo == [])
+        return (self._tasklist == [])
 
     def set_process_value(self, p_id, p_value):
         """
@@ -184,7 +184,7 @@ class Task_queue:
             :rtype: None
         """
 
-        dict_process = self.get_process(p_id)
+        dict_process = self.get(p_id)
         dict_process['value'] = p_value
         dict_process['state'] = 'DONE'
 
