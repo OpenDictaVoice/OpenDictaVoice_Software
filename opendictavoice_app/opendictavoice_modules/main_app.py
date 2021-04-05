@@ -48,7 +48,9 @@ class Main_App():
 
     def analyse_wav(self, p_voice_recognizer, p_id):
         """
-    
+              Performs a recognition
+              p_voice_recognizer the engine that can recognize voice
+              p_id index in the FIFO of the element to analyse
         """
         print(self.fifo)
         #processing
@@ -69,7 +71,7 @@ class Main_App():
 
     def write_fifo_texts(self):
         """
-    
+        write (i.e type) all recognized texts in the focused window
         """
 
         print(self.fifo)
@@ -96,7 +98,12 @@ class Main_App():
         print(self.fifo)
 
 
+
     def switch_focus(self):
+        """
+        Switch the focus to the previous window (the one that had the focused before you clicked to the button)
+        Performs an "Alt+Tab"
+        """
         time.sleep(0.2)
         kb = pynput.keyboard.Controller()
         kb.press(pynput.keyboard.Key.alt)
@@ -124,8 +131,12 @@ class Main_App():
 
 
     def launch(self):
+
+        #button binding
         self.gui.rec_button.bind("<Button-1>", self.start_rec)
         self.gui.stop_button.bind("<Button-1>", lambda event: [self.stop_rec(event), self.switch_focus()])
+
+        #key binding
         opendictavoice_modules.keyboard_listener.Keyboard_listener(self.start_rec, self.stop_rec)
 
         #main loop
