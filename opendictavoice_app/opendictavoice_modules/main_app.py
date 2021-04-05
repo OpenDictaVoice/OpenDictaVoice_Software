@@ -43,11 +43,12 @@ class Main_App():
               p_voice_recognizer the engine that can recognize voice
               p_id index in the FIFO of the element to analyse
         """
-        thread_stop_record = threading.Thread(target=self.analyse_wav, args=(p_voice_recognizer, p_id))
+        thread_stop_record = threading.Thread(target=self.recognize_wav, args=(p_voice_recognizer, p_id))
         thread_stop_record.start()
 
 
-    def analyse_wav(self, p_voice_recognizer, p_id):
+    #def analyse_wav(self, p_voice_recognizer, p_id):
+    def recognize_wav(self, p_voice_recognizer, p_id):
         """
               Performs a recognition
               p_voice_recognizer the engine that can recognize voice
