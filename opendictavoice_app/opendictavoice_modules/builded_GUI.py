@@ -165,7 +165,6 @@ class Builded_GUI:
         """
         self._window.mainloop()
 
-    #returns the string that represents the current language, e.g. "fr" or "en"
     def get_language(self):
         """
             Returns the string that represents the current language chosen by the user,

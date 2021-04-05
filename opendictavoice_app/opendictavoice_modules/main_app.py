@@ -12,7 +12,12 @@ import os
 
 class Main_App():
 
+
     def __init__(self, p_resources_path, p_rewritingrules_files):
+        """
+            p_resources_path is the full path of the ressources
+            p_rewritingrules_files is the array of filenames of rewriting rules
+        """
         self.resources_path = p_resources_path
         self.rewritingrules_files = p_rewritingrules_files
         self.gui = opendictavoice_modules.builded_GUI.Builded_GUI(self.resources_path)
@@ -22,17 +27,25 @@ class Main_App():
 
 
     def launch_record_in_thread(self):
+        """
+           start recording (each recording task is performed in its own thread)
+        """
         thread_record = threading.Thread(target=self.audio_manager.start_record)
         thread_record.start()
 
 
     def analyse_wav_in_thread(self, p_voice_recognizer, p_id):
+        """
+    
+        """
         thread_stop_record = threading.Thread(target=self.analyse_wav, args=(p_voice_recognizer, p_id))
         thread_stop_record.start()
 
 
     def analyse_wav(self, p_voice_recognizer, p_id):
-
+        """
+    
+        """
         print(self.fifo)
         #processing
         filepath = self.resources_path + '/temp/recorded_' + str(p_id) + '.wav'
@@ -49,7 +62,11 @@ class Main_App():
             self.write_fifo_texts()
 
 
+
     def write_fifo_texts(self):
+        """
+    
+        """
 
         print(self.fifo)
         while (not self.fifo.is_empty()):
