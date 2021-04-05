@@ -103,11 +103,10 @@ class Task_queue:
             :rtype: dict
         """
         try:
-            ret_dict =  next(dict_el for dict_el in self._tasklist if dict_el['id'] == p_id)
+           return [task for task in self._tasklist if task['id'] == p_id][0 ]
         except StopIteration:
             raise ValueError("ERROR, voice_recognition_process ID " + str(p_id) + "Doesn't exist")
 
-        return ret_dict
 
     def __iter__(self):
         """
@@ -127,8 +126,8 @@ class Task_queue:
             :return: None
             :rtype: None
         """
-        for dict_process in self._tasklist:
-            yield dict_process
+        for task in self._tasklist:
+            yield task
 
     def __getitem__(self, p_index):
         """
@@ -171,7 +170,7 @@ class Task_queue:
 
         return (self._tasklist == [])
 
-    def set_process_value(self, p_id, p_value):
+    def set_task_value(self, p_id, p_value):
         """
             Method called to set a process status to translated, by setting its value to the text translate and
             its state to "DONE"
@@ -184,20 +183,20 @@ class Task_queue:
             :rtype: None
         """
 
-        dict_process = self.get(p_id)
-        dict_process['value'] = p_value
-        dict_process['state'] = 'DONE'
+        task = self.get(p_id)
+        task['value'] = p_value
+        task['state'] = 'DONE'
 
     ########################
     # Attribute management #
     ########################
 
     @property
-    def fifo(self):
-        raise PermissionError("It is not authorized to access or modify [fifo] attribute")
+    def tasklist(self):
+        raise PermissionError("It is not authorized to access or modify [tasklist] attribute")
         return None
 
-    @fifo.setter
-    def fifo(self, p_value):
-        raise PermissionError("It is not authorized to access or modify [fifo] attribute")
+    @tasklist.setter
+    def tasklist(self, p_value):
+        raise PermissionError("It is not authorized to access or modify [tasklist] attribute")
 

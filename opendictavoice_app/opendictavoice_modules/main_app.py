@@ -66,7 +66,7 @@ class Main_App():
         else:
             #once text is recognized (or not), it is stored in the fifo list in the specific dict of the list.
             #Beware of the content of the list to ensure chars are printable to avoid security problems
-            self.task_queue.set_process_value(p_id, text)
+            self.task_queue.set_task_value(p_id, text)
             self.write_fifo_texts()
 
 
