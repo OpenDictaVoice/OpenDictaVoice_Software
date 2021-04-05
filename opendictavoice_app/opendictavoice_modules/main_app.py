@@ -28,7 +28,9 @@ class Main_App():
 
     def launch_record_in_thread(self):
         """
-           start recording (each recording task is performed in its own thread)
+           start recording
+           Note: The application only performs one recording task at a time. However, it is technically possible to 
+           start several recording tasks(each recording task is performed in its own thread).
         """
         thread_record = threading.Thread(target=self.audio_manager.start_record)
         thread_record.start()
@@ -36,7 +38,9 @@ class Main_App():
 
     def analyse_wav_in_thread(self, p_voice_recognizer, p_id):
         """
-    
+              Performs a recognition
+              p_voice_recognizer the engine that can recognize voice
+              p_id index in the FIFO of the element to analyse
         """
         thread_stop_record = threading.Thread(target=self.analyse_wav, args=(p_voice_recognizer, p_id))
         thread_stop_record.start()
