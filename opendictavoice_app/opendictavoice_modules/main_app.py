@@ -36,7 +36,8 @@ class Main_App():
         thread_record.start()
 
 
-    def analyse_wav_in_thread(self, p_voice_recognizer, p_id):
+    #def analyse_wav_in_thread(self, p_voice_recognizer, p_id):
+    def launch_wav_recognition_in_thread(self, p_voice_recognizer, p_id):
         """
               Performs a recognition
               p_voice_recognizer the engine that can recognize voice
@@ -127,7 +128,7 @@ class Main_App():
         self.audio_manager.stop_record_N_save(self.resources_path + '/temp/recorded_' + str(index) +'.wav')
 
         #then, instead of passing the filename as arg, we pass the index of the file in the fifo, like 1
-        self.analyse_wav_in_thread(temp_voice_recognizer, index)
+        self.launch_wav_recognition_in_thread(temp_voice_recognizer, index)
 
 
     def launch(self):
