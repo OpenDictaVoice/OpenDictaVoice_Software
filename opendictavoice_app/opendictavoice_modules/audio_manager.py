@@ -195,7 +195,7 @@ class Audio_manager:
         return None
 
     @audio_frames.setter
-    def keep_record(self):
+    def audio_frames(self):
         raise PermissionError("It is not authorized to access or modify [audio_frames] attribute")
 
     @property
@@ -204,5 +204,5 @@ class Audio_manager:
         return None
 
     @stream.setter
-    def keep_record(self):
+    def stream(self):
         raise PermissionError("It is not authorized to access or modify [stream] attribute")
