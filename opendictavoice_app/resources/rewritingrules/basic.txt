@@ -1,3 +1,21 @@
 comma -> ,
 point -> .
 
+bloc centré ->
+
+%BEGIN
+\begin{center}
+   .
+\end{center}
+%END
+
+
+
+
+for(const a of A) {
+   .
+}
+
+
+
+

@@ -1,3 +1,7 @@
+include graphics -> \includegraphics{}
+includegraphics -> \includegraphics{}
+bloc centré -> \begin{center}  \end{center}
+blog Centre-est -> \begin{center}  \end{center}
 begin takes picture -> \begin{tikzpicture}
 begin 6 picture -> \begin{tikzpicture}
 
